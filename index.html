@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Tournament Deluxe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="setup-screen" class="container active">
+        <div class="card">
+            <h1>Tic Tac Toe Tournament</h1>
+            <p class="subtitle">Game Setup</p>
+
+            <div class="form-group">
+                <label>Game Mode:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gameMode" value="friend" checked> Play with Friend
+                    </label>
+                    <label>
+                        <input type="radio" name="gameMode" value="computer"> Play with Computer
+                    </label>
+                </div>
+            </div>
+
+            <div id="friend-settings" class="settings-group">
+                <div class="form-group">
+                    <label for="player1-name">Player 1 (X) Name:</label>
+                    <input type="text" id="player1-name" placeholder="Enter Player 1 Name" value="Player 1">
+                </div>
+                <div class="form-group">
+                    <label for="player2-name">Player 2 (O) Name:</label>
+                    <input type="text" id="player2-name" placeholder="Enter Player 2 Name" value="Player 2">
+                </div>
+            </div>
+
+            <div id="computer-settings" class="settings-group hidden">
+                <div class="form-group">
+                    <label for="player-name-pvc">Your Name (X):</label>
+                    <input type="text" id="player-name-pvc" placeholder="Enter Your Name" value="Player">
+                </div>
+                <div class="form-group">
+                    <label for="computer-name">Computer (O) Name:</label>
+                    <input type="text" id="computer-name" placeholder="Computer Name" value="Computer">
+                </div>
+                <div class="form-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="normal" selected>Normal</option>
+                        <option value="advanced">Advanced (Minimax)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="magic-number">Wins to Win Tournament:</label>
+                <input type="number" id="magic-number" value="3" min="1">
+            </div>
+
+            <button id="start-game-btn" class="btn btn-primary">Start Tournament</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="container">
+        <div class="card game-card">
+            <div id="scoreboard">
+                <div class="score-item player-x">
+                    <span id="score-player1-name">Player 1</span> (X): <span id="score-player1">0</span>
+                </div>
+                <div id="round-info">
+                    Round <span id="current-round">1</span> / Target <span id="target-wins">3</span>
+                </div>
+                <div class="score-item player-o">
+                    <span id="score-player2-name">Player 2</span> (O): <span id="score-player2">0</span>
+                </div>
+            </div>
+
+            <div id="turn-indicator">Turn: <span id="current-player-indicator">X</span></div>
+
+            <div id="game-board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <div id="game-message" class="message"></div>
+
+            <div id="game-controls">
+                <button id="restart-round-btn" class="btn btn-secondary hidden">Next Round</button>
+                <button id="new-game-btn" class="btn btn-tertiary">New Game Setup</button>
+            </div>
+
+            <div id="celebration" class="celebration-overlay hidden">
+                 <div class="celebration-content">
+                    <div class="celeb-text">🎉 <span id="tournament-winner-name">Player</span> Wins the Tournament! 🎉</div>
+                    <button id="new-game-celeb-btn" class="btn btn-light">Play Again (Setup)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="move-sound" src="sounds/move.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="sounds/win.mp3" preload="auto"></audio>
+    <audio id="draw-sound" src="sounds/draw.mp3" preload="auto"></audio>
+    <audio id="tourney-win-sound" src="sounds/tourney_win.mp3" preload="auto"></audio>
+
+    <script src="script.js" type="module"></script>
+
+</body>
+</html>

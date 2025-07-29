@@ -1,0 +1,6 @@
+{
+  "CodeGPT.apiKey": "Ollama",
+  "CodeGPT.model": "ollama:codellama",
+  "CodeGPT.useLocalModel": true,
+  "CodeGPT.provider": "ollama"
+}
